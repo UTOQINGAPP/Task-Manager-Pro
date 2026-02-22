@@ -1,14 +1,23 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:task_manager_pro/interface/interface.dart';
 
-/// Basic smoke test to validate the generated App widget.
-/// Prueba básica para validar el widget App generado.
+import 'helper/test_container_helper.dart';
+
 void main() {
-  testWidgets('App renders without crashing', (WidgetTester tester) async {
+  testWidgets('App renders without crashing', (tester) async {
     await tester.pumpWidget(
-      const App(),
+      ProviderScope(
+        overrides: [
+          ...createTestOverrides(tasks: const []),
+        ],
+        child: const App(),
+      ),
     );
-    await tester.pumpAndSettle();
-    expect(find.byType(App), findsOneWidget);
+
+    await tester.pump();
+
+    expect(find.byType(MaterialApp), findsOneWidget);
   });
 }

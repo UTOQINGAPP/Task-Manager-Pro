@@ -1,0 +1,4 @@
+arb-dir: lib/configs/internationalization/container
+template-arb-file: internationalization_en.arb
+output-localization-file: internationalization_localizations.dart
+output-class: InternationalizationLocalizations

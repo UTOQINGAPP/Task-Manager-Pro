@@ -2,4 +2,5 @@ library;
 
 /// Barrel file for pages.
 /// Archivo barrel para las páginas.
-export 'example/example_page.dart';
+export 'tasks/tasks_page.dart';
+export 'bin/bin_page.dart';
